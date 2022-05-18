@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class CheckAnagram(BaseModel):
@@ -11,3 +11,12 @@ class CheckAnagram(BaseModel):
 class CheckAnagramResponse(BaseModel):
     is_anagram: bool
     anagram_count: Optional[int]
+
+
+class DeviceCount(BaseModel):
+    dev_type: str
+    count: int
+
+
+class GetDevicesCount(BaseModel):
+    __root__: list[DeviceCount]

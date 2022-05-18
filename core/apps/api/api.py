@@ -21,3 +21,9 @@ async def insert_devices():
     device_types = ['emeter', 'zigbee', 'lora', 'gsm']
     await api_s.insert_devices(types=device_types)
     return True
+
+
+@api_router.get('/devices/', response_model=schemas.GetDevicesCount)
+async def get_devices():
+    devices_count = await api_s.get_devices_count()
+    return schemas.GetDevicesCount.parse_obj(devices_count)

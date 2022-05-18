@@ -10,7 +10,7 @@ class Devices(Model):
 
 class Endpoint(Model):
     """Model for endpoint"""
-    device = fields.ForeignKeyField('models.Devices', on_delete=fields.CASCADE)
+    device = fields.ForeignKeyField('models.Devices', on_delete=fields.CASCADE, related_name='endpoints')
     comment = fields.TextField(null=True)
 
 
