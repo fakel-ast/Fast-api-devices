@@ -1,8 +1,15 @@
-from core.apps.api import schemas, models
+import aioredis
+
+from core.config.settings import REDIS_URI
 
 
 class ApiService:
-    model = models
+
+    @staticmethod
+    async def increment_anagram_count(*args, **kwargs) -> int:
+        """Increment anagram count in redis"""
+        redis = aioredis.from_url(REDIS_URI)
+        return await redis.incr("anagram_count")
 
 
 api_s = ApiService()

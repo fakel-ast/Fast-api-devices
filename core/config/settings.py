@@ -18,6 +18,8 @@ DATABASE_URI = f'postgres://{os.environ.get("POSTGRES_USER")}:' \
                f'{os.environ.get("POSTGRES_HOST")}:5432/' \
                f'{os.environ.get("POSTGRES_DB")}'
 
+REDIS_URI = os.environ.get('REDIS_URI')
+
 APPS_MODELS = [
     "core.apps.api.models",
     "aerich.models",
