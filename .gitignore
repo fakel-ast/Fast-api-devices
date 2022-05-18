@@ -160,3 +160,5 @@ pnpm-debug.log*
 *.sln
 *.sw?
 .idea
+
+models/
